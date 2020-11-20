@@ -1,0 +1,122 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://bar/assets/Wall_back_room.png" type="Texture" id=1]
+[ext_resource path="res://bar/assets/floors.png" type="Texture" id=2]
+[ext_resource path="res://bar/assets/Wall_front_room.png" type="Texture" id=3]
+[ext_resource path="res://bar/assets/boarder2.png" type="Texture" id=4]
+[ext_resource path="res://bar/assets/boarder1.png" type="Texture" id=5]
+[ext_resource path="res://test/dummy_player/DummyPlayer.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1075.77, 13.5125 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 915.582, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 65.627, 15.2593 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 1081.17, 10 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10.8489, 698.242 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1084.06, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10.3081, 703.483 )
+
+[node name="Bar" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Floor" type="Sprite" parent="YSort"]
+position = Vector2( 541.166, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 720 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BackRoomWall" type="Sprite" parent="YSort"]
+position = Vector2( 540, 100 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, 520 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/BackRoomWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/BackRoomWall/StaticBody2D"]
+position = Vector2( 3.05615, -20.9036 )
+shape = SubResource( 1 )
+
+[node name="MainWall" type="Sprite" parent="YSort"]
+position = Vector2( 540, 304 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+offset = Vector2( 0, 110 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/MainWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/MainWall/StaticBody2D"]
+position = Vector2( -162.494, -18.5707 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="YSort/MainWall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/MainWall/StaticBody2D2"]
+position = Vector2( 1013.34, -19.5578 )
+shape = SubResource( 3 )
+
+[node name="DummyPlayer" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 420.902, 526.667 )
+
+[node name="BorderOutline" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TopBox" type="StaticBody2D" parent="BorderOutline"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderOutline/TopBox"]
+position = Vector2( 1081.72, 10.247 )
+shape = SubResource( 4 )
+
+[node name="RightBox" type="StaticBody2D" parent="BorderOutline"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderOutline/RightBox"]
+position = Vector2( 2149.62, 722.164 )
+shape = SubResource( 5 )
+
+[node name="ButtomBox" type="StaticBody2D" parent="BorderOutline"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderOutline/ButtomBox"]
+position = Vector2( 1080.94, 1432.57 )
+shape = SubResource( 6 )
+
+[node name="LeftBox" type="StaticBody2D" parent="BorderOutline"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderOutline/LeftBox"]
+position = Vector2( 10.0211, 721.519 )
+shape = SubResource( 7 )
+
+[node name="WallOutline" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
