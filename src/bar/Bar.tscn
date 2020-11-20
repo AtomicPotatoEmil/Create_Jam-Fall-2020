@@ -80,7 +80,7 @@ position = Vector2( 1013.34, -19.5578 )
 shape = SubResource( 3 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 967.24, 309.701 )
+position = Vector2( 553.615, 383.678 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="BorderOutline" type="Sprite" parent="."]
