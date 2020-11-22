@@ -22,18 +22,24 @@ var feather_dropped = false
 
 var vampire_gone = false
 
+var creatures_in_bar = 5
 
 func _ready():
 	$YSort/Nisse.play("default")
 	$LeakTimer.start()
 	$Raven.hide()
 	$YSort/AngryNisse.hide()
+	
+	$MouseRight.hide()
+	$MouseRightLabel.hide()
+	
+	$Q.hide()
+	$QLabel.hide()
+	
+	$MouseLeft.hide()
+	$MouseLeftLabel.hide()
 
 func _process(delta):
-	if Input.is_action_just_pressed("test"):
-		#giant_animation.play("remove_foot")
-		#beer_animation.play("tip_over")
-		witch_animation.play("melt")
 	if talking == true:
 		text.show()
 	else:
@@ -87,6 +93,8 @@ func _on_Puddle_bucket_placed():
 
 func _on_full_bucket_picked():
 	emit_signal("bucket_gained")
+	$Q.show()
+	$QLabel.show()
 
 
 
@@ -103,6 +111,8 @@ func _on_Flyswapper_swapper_picked():
 	talking = true
 	current_text = "Not many flies aroud but might be usefull..."
 	talk_timer.start()
+	$MouseLeft.show()
+	$MouseLeftLabel.show()
 	pass # Replace with function body.
 
 
@@ -122,6 +132,8 @@ func _on_Fariries_is_dead():
 	talking = true
 	current_text = "I.. I.. mistook them for flies.. \n yeah.. thats what I did..."
 	talk_timer.start()
+	creatures_in_bar -= 1
+	print(creatures_in_bar)
 	pass # Replace with function body.
 
 
@@ -132,10 +144,14 @@ func _on_Witch_dead():
 	talk_timer.start()
 	$Raven.show()
 	$Raven/AnimationPlayer.play("move_raven")
+	creatures_in_bar -= 1
+	print(creatures_in_bar)
 	pass # Replace with function body.
 
 
 func _on_Feather_feather_picked():
+	$MouseRight.show()
+	$MouseRightLabel.show()
 	emit_signal("feather_gained")
 	pass # Replace with function body.
 
@@ -177,4 +193,20 @@ func _on_Vampire_vampire_flee():
 	talking = true
 	current_text = "         Rude..."
 	talk_timer.start()
+	creatures_in_bar -= 1
+	print(creatures_in_bar)
+	pass # Replace with function body.
+
+
+func _on_AngryNisse_AnimationPlayer_animation_finished(walking_out):
+	$YSort/AngryNisse.queue_free()
+	creatures_in_bar -= 1
+	print(creatures_in_bar)
+	pass # Replace with function body.
+
+
+func _on_foot_animation_finished(anim_name):
+	$YSort/Giant.queue_free()
+	creatures_in_bar -= 1
+	print(creatures_in_bar)
 	pass # Replace with function body.

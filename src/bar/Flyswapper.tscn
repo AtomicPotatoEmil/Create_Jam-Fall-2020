@@ -26,9 +26,9 @@ offset = Vector2( 0, -220 )
 script = ExtResource( 3 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -20.8044, -357.644 )
+position = Vector2( -7.08994, -273.49 )
 rotation = -0.127409
-scale = Vector2( 5, 5 )
+scale = Vector2( 5, 3 )
 enabled = true
 collide_with_areas = true
 collide_with_bodies = false

@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Create-Jam_Fall-2020"
+run/main_scene="res://bar/Bar.tscn"
 config/icon="res://test/dummy_player/icon.png"
 
 [display]

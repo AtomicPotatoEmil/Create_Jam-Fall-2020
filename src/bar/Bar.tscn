@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://bar/assets/Wall_back_room.png" type="Texture" id=1]
 [ext_resource path="res://bar/assets/floors.png" type="Texture" id=2]
@@ -30,15 +30,24 @@
 [ext_resource path="res://bar/assets/bye_mat.png" type="Texture" id=28]
 [ext_resource path="res://Nisse/nissewalk_1.png" type="Texture" id=29]
 [ext_resource path="res://Nisse/nissewalk_2.png" type="Texture" id=30]
+[ext_resource path="res://bar/assets/barrel_1.png" type="Texture" id=31]
+[ext_resource path="res://bar/assets/barrel_2_no_blood.png" type="Texture" id=32]
+[ext_resource path="res://bar/assets/oven.png" type="Texture" id=33]
+[ext_resource path="res://bar/assets/table_2.png" type="Texture" id=34]
+[ext_resource path="res://bar/Cheesy_Bar_Music.wav" type="AudioStream" id=35]
+[ext_resource path="res://bar/E_button.png" type="Texture" id=36]
+[ext_resource path="res://bar/mouse_1.png" type="Texture" id=37]
+[ext_resource path="res://bar/Q_button.png" type="Texture" id=38]
+[ext_resource path="res://bar/mouse_2.png" type="Texture" id=39]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1075.77, 13.5125 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 915.582, 10 )
+extents = Vector2( 918.756, 33.5486 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 65.627, 15.2593 )
+extents = Vector2( 65.627, 38.864 )
 
 [sub_resource type="DynamicFont" id=12]
 size = 29
@@ -112,6 +121,18 @@ tracks/1/keys = {
 size = 29
 font_data = ExtResource( 15 )
 
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 73.5532, 22.3589 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 74.4639, 23.3491 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 180.222, 30.3071 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 368.453, 36.9419 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 1081.17, 10 )
 
@@ -160,6 +181,10 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
+[sub_resource type="DynamicFont" id=23]
+size = 22
+font_data = ExtResource( 15 )
+
 [node name="Bar" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -195,22 +220,22 @@ position = Vector2( 540, 304 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, 110 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/MainWall"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/MainWall/StaticBody2D"]
-position = Vector2( -162.494, -18.5707 )
+position = Vector2( -158.712, -45.0412 )
 shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="YSort/MainWall"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/MainWall/StaticBody2D2"]
-position = Vector2( 1013.34, -19.5578 )
+position = Vector2( 1017.12, -40.9863 )
 shape = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 566.509, 582.65 )
@@ -399,6 +424,78 @@ offset = Vector2( 0, -70 )
 position = Vector2( -1.50934, -14.3395 )
 shape = SubResource( 11 )
 
+[node name="stool4" type="Sprite" parent="YSort/stools"]
+position = Vector2( 111.794, 633.212 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool4/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool5" type="Sprite" parent="YSort/stools"]
+position = Vector2( 181.144, 659.812 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool5/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool6" type="Sprite" parent="YSort/stools"]
+position = Vector2( 536.444, 491.662 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool6/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool7" type="Sprite" parent="YSort/stools"]
+position = Vector2( 629.544, 684.512 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool7/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool8" type="Sprite" parent="YSort/stools"]
+position = Vector2( 707.444, 707.312 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool8/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool9" type="Sprite" parent="YSort/stools"]
+position = Vector2( 457.594, 518.262 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool9/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
 [node name="RicePudding" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 527, 405 )
 
@@ -460,6 +557,54 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Barrel" type="Sprite" parent="YSort"]
+position = Vector2( 348.461, 128.417 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 31 )
+offset = Vector2( 0, -120 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/Barrel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Barrel/StaticBody2D"]
+position = Vector2( 1.04883, -35.6642 )
+shape = SubResource( 19 )
+
+[node name="NotBloodBarrel" type="Sprite" parent="YSort"]
+position = Vector2( 265.839, 128.728 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 32 )
+offset = Vector2( 0, -120 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/NotBloodBarrel"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/NotBloodBarrel/StaticBody2D"]
+position = Vector2( 3.01886, -39.2448 )
+shape = SubResource( 20 )
+
+[node name="Oven" type="Sprite" parent="YSort"]
+position = Vector2( 572.85, 135.85 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 33 )
+offset = Vector2( 0, -120 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/Oven"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Oven/StaticBody2D"]
+position = Vector2( -2.05334, -19.507 )
+shape = SubResource( 21 )
+
+[node name="LongTable" type="Sprite" parent="YSort"]
+position = Vector2( 837.81, 142.805 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 34 )
+offset = Vector2( 0, -110 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/LongTable"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/LongTable/StaticBody2D"]
+position = Vector2( -2.03638, -46.8341 )
+shape = SubResource( 22 )
+
 [node name="BorderOutline" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
@@ -515,12 +660,90 @@ playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Raven"]
 anims/move_raven = SubResource( 14 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 35 )
+autoplay = true
+mix_target = 1
+
+[node name="ELabel" type="Label" parent="."]
+margin_left = 93.0
+margin_top = 655.0
+margin_right = 201.0
+margin_bottom = 689.0
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0, 0, 0, 0.784314 )
+text = "Interact"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseLeftLabel" type="Label" parent="."]
+margin_left = 276.386
+margin_top = 654.226
+margin_right = 410.386
+margin_bottom = 688.226
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0, 0, 0, 0.784314 )
+text = "Fly swapper"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QLabel" type="Label" parent="."]
+margin_left = 513.744
+margin_top = 655.129
+margin_right = 647.744
+margin_bottom = 689.129
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0, 0, 0, 0.784314 )
+text = "Pour water"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseRightLabel" type="Label" parent="."]
+margin_left = 777.815
+margin_top = 651.455
+margin_right = 911.815
+margin_bottom = 685.455
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0, 0, 0, 0.784314 )
+text = "Use feather"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="E" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 60.4899, 668.473 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 36 )
+
+[node name="MouseLeft" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 248.242, 668.749 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 37 )
+
+[node name="Q" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 476.69, 668.804 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 38 )
+
+[node name="MouseRight" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 744.345, 668.686 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 39 )
 [connection signal="bucket_gained" from="." to="YSort/Player" method="_on_Bar_bucket_gained"]
 [connection signal="bucket_placed" from="." to="." method="_on_Bar_bucket_placed"]
 [connection signal="bucket_placed" from="." to="YSort/Puddle" method="_on_Bar_bucket_placed"]
 [connection signal="feather_gained" from="." to="YSort/Player" method="_on_Bar_feather_gained"]
 [connection signal="swapper_gained" from="." to="YSort/Player" method="_on_Bar_swapper_gained"]
 [connection signal="timeout" from="YSort/Player/TalkTimer" to="." method="_on_TalkTimer_timeout"]
+[connection signal="animation_finished" from="YSort/Giant/AnimationPlayer" to="." method="_on_foot_animation_finished"]
 [connection signal="area_entered" from="YSort/Giant/footbox" to="." method="_on_footbox_area_entered"]
 [connection signal="salted" from="YSort/RicePudding" to="." method="_on_RicePudding_salted"]
 [connection signal="dead" from="YSort/Witch" to="." method="_on_Witch_dead"]
@@ -532,5 +755,6 @@ anims/move_raven = SubResource( 14 )
 [connection signal="empty_bucket_picked" from="YSort/Bucket" to="." method="_on_Bucket_empty_bucket_picked"]
 [connection signal="salt_picked" from="YSort/Salt" to="." method="_on_Salt_salt_picked"]
 [connection signal="garlic_picked" from="YSort/Garlic" to="." method="_on_Garlic_garlic_picked"]
+[connection signal="animation_finished" from="YSort/AngryNisse/AnimationPlayer" to="." method="_on_AngryNisse_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="LeakTimer" to="." method="_on_LeakTimer_timeout"]
 [connection signal="animation_finished" from="Raven/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
