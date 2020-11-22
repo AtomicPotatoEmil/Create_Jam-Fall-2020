@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Nisse/Nisse_float_1.png" type="Texture" id=1]
+[ext_resource path="res://Nisse/Nisse_float_2.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Nisse",
+"speed": 0.5
+} ]
+
+[node name="Nisse" type="AnimatedSprite"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "Nisse"
+offset = Vector2( 0, -220 )

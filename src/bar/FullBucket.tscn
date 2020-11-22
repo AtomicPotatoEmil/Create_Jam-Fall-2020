@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://bar/assets/bucket_1.png" type="Texture" id=1]
+[ext_resource path="res://bar/assets/bucket_3_full.png" type="Texture" id=2]
+[ext_resource path="res://bar/assets/bucket_4_full_selected.png" type="Texture" id=3]
+[ext_resource path="res://bar/FullBucket.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "bucket_full",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "inter_bucket_full",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 47.4631, 49.8304 )
+
+[node name="FullBucket" type="Area2D" groups=[
+"bucket",
+]]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "inter_bucket_full"
+offset = Vector2( 0, -60 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.72472, -63.6593 )
+shape = SubResource( 2 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -126.008, -54.4899 )
+rotation = -1.5708
+scale = Vector2( 3, 5 )
+enabled = true
+collide_with_areas = true
+collide_with_bodies = false
+[connection signal="area_entered" from="." to="." method="_on_FullBucket_area_entered"]

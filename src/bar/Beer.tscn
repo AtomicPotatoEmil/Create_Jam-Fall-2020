@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bar/assets/beer_1.png" type="Texture" id=1]
+[ext_resource path="res://bar/assets/beer_3.png" type="Texture" id=2]
+[ext_resource path="res://bar/assets/beer_2.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "tip_over",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 47.8909, 11.9628 )
+
+[node name="Beer" type="AnimatedSprite"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+animation = "tip_over"
+frame = 2
+offset = Vector2( 0, -50 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -27.8636, 1.49966 )
+shape = SubResource( 2 )

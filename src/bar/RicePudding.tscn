@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://bar/RicePudding.gd" type="Script" id=1]
+[ext_resource path="res://bar/assets/Risengrd2.png" type="Texture" id=2]
+[ext_resource path="res://bar/assets/Risengrd.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "interact",
+"speed": 5.0
+} ]
+
+[node name="RicePudding" type="AnimatedSprite"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+offset = Vector2( 0, -220 )
+script = ExtResource( 1 )
+
+[node name="VerticalRay" type="RayCast2D" parent="."]
+position = Vector2( -0.975342, -347.225 )
+scale = Vector2( 6, 5 )
+enabled = true
+collide_with_areas = true
+collide_with_bodies = false

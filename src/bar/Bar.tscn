@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://bar/assets/Wall_back_room.png" type="Texture" id=1]
 [ext_resource path="res://bar/assets/floors.png" type="Texture" id=2]
@@ -6,7 +6,30 @@
 [ext_resource path="res://bar/assets/boarder2.png" type="Texture" id=4]
 [ext_resource path="res://bar/assets/boarder1.png" type="Texture" id=5]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://bar/assets/Da_Bar.png" type="Texture" id=7]
+[ext_resource path="res://bar/assets/bar_new_and_improved.png" type="Texture" id=7]
+[ext_resource path="res://bar/assets/table_1.png" type="Texture" id=8]
+[ext_resource path="res://Giant/Giant.tscn" type="PackedScene" id=9]
+[ext_resource path="res://bar/Bar.gd" type="Script" id=10]
+[ext_resource path="res://bar/Beer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Nisse/Nisse.tscn" type="PackedScene" id=12]
+[ext_resource path="res://bar/assets/stool_2.png" type="Texture" id=13]
+[ext_resource path="res://bar/RicePudding.tscn" type="PackedScene" id=14]
+[ext_resource path="res://bar/assets/Peace Sans.otf" type="DynamicFontData" id=15]
+[ext_resource path="res://Witch/Witch.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Water_drop/Puddle.tscn" type="PackedScene" id=17]
+[ext_resource path="res://bar/Feather.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Fairies/Fariries.tscn" type="PackedScene" id=19]
+[ext_resource path="res://bar/Flyswapper.tscn" type="PackedScene" id=20]
+[ext_resource path="res://bar/Bucket.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Witch/crow/crowfly_1.png" type="Texture" id=22]
+[ext_resource path="res://Witch/crow/crowfly_2.png" type="Texture" id=23]
+[ext_resource path="res://Giant/Giant.gd" type="Script" id=24]
+[ext_resource path="res://Vampire/Vampire.tscn" type="PackedScene" id=25]
+[ext_resource path="res://bar/Salt.tscn" type="PackedScene" id=26]
+[ext_resource path="res://bar/Garlic.tscn" type="PackedScene" id=27]
+[ext_resource path="res://bar/assets/bye_mat.png" type="Texture" id=28]
+[ext_resource path="res://Nisse/nissewalk_1.png" type="Texture" id=29]
+[ext_resource path="res://Nisse/nissewalk_2.png" type="Texture" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1075.77, 13.5125 )
@@ -17,8 +40,77 @@ extents = Vector2( 915.582, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 65.627, 15.2593 )
 
+[sub_resource type="DynamicFont" id=12]
+size = 29
+font_data = ExtResource( 15 )
+
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 620.513, 18.7634 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 188.644, 38.7006 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "remove_foot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 167.326, 492.455 ), Vector2( -159.164, 299.282 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 143.802, 50.8706 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 98.2977, 11.4868 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=17]
+resource_name = "walking_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 388.307, 447.907 ), Vector2( 640.057, 497.307 ), Vector2( 638.157, 634.107 ), Vector2( 1175.86, 668.307 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="DynamicFont" id=18]
+size = 29
+font_data = ExtResource( 15 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 1081.17, 10 )
@@ -27,12 +119,49 @@ extents = Vector2( 1081.17, 10 )
 extents = Vector2( 10.8489, 698.242 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 1084.06, 10 )
+extents = Vector2( 1084.06, 10.8881 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10.3081, 703.483 )
 
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=14]
+resource_name = "move_raven"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320.585, 532.06 ), Vector2( 1174.83, 91.3666 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Bar" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="YSort" type="YSort" parent="."]
 
@@ -45,7 +174,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BackRoomWall" type="Sprite" parent="YSort"]
+[node name="BackroomWall" type="Sprite" parent="YSort"]
 position = Vector2( 540, 100 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
@@ -55,9 +184,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="StaticBody2D" type="StaticBody2D" parent="YSort/BackRoomWall"]
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/BackroomWall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/BackRoomWall/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/BackroomWall/StaticBody2D"]
 position = Vector2( 3.05615, -20.9036 )
 shape = SubResource( 1 )
 
@@ -84,23 +213,252 @@ position = Vector2( 1013.34, -19.5578 )
 shape = SubResource( 3 )
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
-position = Vector2( 732.734, 558.638 )
+position = Vector2( 566.509, 582.65 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="TextBubble" type="Label" parent="YSort/Player"]
+margin_left = -214.02
+margin_top = -301.911
+margin_right = 127.98
+margin_bottom = -237.911
+size_flags_stretch_ratio = 41.56
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.85098, 1, 0, 1 )
+text = "hello"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TalkTimer" type="Timer" parent="YSort/Player"]
+wait_time = 4.0
+
 [node name="bar" type="Sprite" parent="YSort"]
-position = Vector2( 588.77, 403.196 )
+position = Vector2( 599.565, 402.165 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 7 )
+offset = Vector2( 0, -160 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort/bar"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/bar/StaticBody2D"]
-position = Vector2( -52.9553, -17.2916 )
+position = Vector2( -40.3503, -14.7706 )
 shape = SubResource( 8 )
+
+[node name="tables" type="YSort" parent="YSort"]
+
+[node name="table" type="Sprite" parent="YSort/tables"]
+position = Vector2( 149.413, 637.739 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/tables/table"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/tables/table/StaticBody2D"]
+position = Vector2( 1.32422, -13.2405 )
+shape = SubResource( 9 )
+
+[node name="table2" type="Sprite" parent="YSort/tables"]
+position = Vector2( 768.684, 552.577 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/tables/table2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/tables/table2/StaticBody2D"]
+position = Vector2( 1.32422, -13.2405 )
+shape = SubResource( 9 )
+
+[node name="table3" type="Sprite" parent="YSort/tables"]
+position = Vector2( 667.604, 696.14 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/tables/table3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/tables/table3/StaticBody2D"]
+position = Vector2( 1.32422, -13.2405 )
+shape = SubResource( 9 )
+
+[node name="table4" type="Sprite" parent="YSort/tables"]
+position = Vector2( 371.896, 649.388 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/tables/table4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/tables/table4/StaticBody2D"]
+position = Vector2( 1.32422, -13.2405 )
+shape = SubResource( 9 )
+
+[node name="table5" type="Sprite" parent="YSort/tables"]
+position = Vector2( 491.747, 503.019 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/tables/table5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/tables/table5/StaticBody2D"]
+position = Vector2( 1.32422, -13.2405 )
+shape = SubResource( 9 )
+
+[node name="table6" type="Sprite" parent="YSort/tables"]
+position = Vector2( 1002.12, 486.223 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -140 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/tables/table6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/tables/table6/StaticBody2D"]
+position = Vector2( 1.32422, -13.2405 )
+shape = SubResource( 9 )
+
+[node name="Giant" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 167.326, 492.455 )
+script = ExtResource( 24 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Giant"]
+anims/remove_foot = SubResource( 10 )
+
+[node name="footbox" type="Area2D" parent="YSort/Giant"]
+position = Vector2( -334.652, -984.911 )
+scale = Vector2( 2, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Giant/footbox"]
+position = Vector2( 161.744, 488.748 )
+shape = SubResource( 15 )
+
+[node name="Beer" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 109.236, 529.277 )
+frame = 0
+
+[node name="Nisse" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 420.017, 410.603 )
+
+[node name="stools" type="YSort" parent="YSort"]
+
+[node name="stool" type="Sprite" parent="YSort/stools"]
+position = Vector2( 414.036, 418.628 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool2" type="Sprite" parent="YSort/stools"]
+position = Vector2( 315.595, 639.519 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool2/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="stool3" type="Sprite" parent="YSort/stools"]
+position = Vector2( 765.394, 535.362 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -70 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="YSort/stools/stool3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/stools/stool3/StaticBody2D"]
+position = Vector2( -1.50934, -14.3395 )
+shape = SubResource( 11 )
+
+[node name="RicePudding" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 527, 405 )
+
+[node name="Witch" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 334.876, 585.74 )
+
+[node name="Puddle" parent="YSort" instance=ExtResource( 17 )]
+position = Vector2( 108.029, 141.177 )
+
+[node name="Feather" parent="YSort" instance=ExtResource( 18 )]
+position = Vector2( 393.576, 653.127 )
+
+[node name="Fariries" parent="YSort" instance=ExtResource( 19 )]
+position = Vector2( 668.053, 709.197 )
+
+[node name="Flyswapper" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 696.524, 412.24 )
+
+[node name="Vampire" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 764.777, 537.882 )
+
+[node name="Bucket" parent="YSort" instance=ExtResource( 21 )]
+position = Vector2( 1039.05, 116.312 )
+
+[node name="Salt" parent="YSort" instance=ExtResource( 26 )]
+position = Vector2( 806.503, 569.049 )
+
+[node name="Garlic" parent="YSort" instance=ExtResource( 27 )]
+position = Vector2( 426, 161 )
+
+[node name="DoorMat" type="Sprite" parent="YSort"]
+position = Vector2( 961.32, 373.679 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 28 )
+offset = Vector2( 0, 500 )
+
+[node name="AngryNisse" type="AnimatedSprite" parent="YSort"]
+position = Vector2( 388.307, 447.907 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 16 )
+frame = 1
+playing = true
+offset = Vector2( 0, -200 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/AngryNisse"]
+anims/walking_out = SubResource( 17 )
+
+[node name="Label" type="Label" parent="YSort/AngryNisse"]
+margin_left = -130.037
+margin_top = -458.89
+margin_right = 226.963
+margin_bottom = -326.89
+custom_fonts/font = SubResource( 18 )
+custom_colors/font_color = Color( 1, 0.984314, 0.00784314, 1 )
+text = "Oi this this rice pudding
+is too salty, I'm outta
+here!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BorderOutline" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
@@ -142,3 +500,37 @@ centered = false
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="LeakPosition" type="Position2D" parent="."]
+position = Vector2( 110.669, -63.3634 )
+
+[node name="LeakTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Raven" type="AnimatedSprite" parent="."]
+position = Vector2( 320.585, 532.06 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 13 )
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Raven"]
+anims/move_raven = SubResource( 14 )
+[connection signal="bucket_gained" from="." to="YSort/Player" method="_on_Bar_bucket_gained"]
+[connection signal="bucket_placed" from="." to="." method="_on_Bar_bucket_placed"]
+[connection signal="bucket_placed" from="." to="YSort/Puddle" method="_on_Bar_bucket_placed"]
+[connection signal="feather_gained" from="." to="YSort/Player" method="_on_Bar_feather_gained"]
+[connection signal="swapper_gained" from="." to="YSort/Player" method="_on_Bar_swapper_gained"]
+[connection signal="timeout" from="YSort/Player/TalkTimer" to="." method="_on_TalkTimer_timeout"]
+[connection signal="area_entered" from="YSort/Giant/footbox" to="." method="_on_footbox_area_entered"]
+[connection signal="salted" from="YSort/RicePudding" to="." method="_on_RicePudding_salted"]
+[connection signal="dead" from="YSort/Witch" to="." method="_on_Witch_dead"]
+[connection signal="bucket_placed" from="YSort/Puddle" to="." method="_on_Puddle_bucket_placed"]
+[connection signal="feather_picked" from="YSort/Feather" to="." method="_on_Feather_feather_picked"]
+[connection signal="is_dead" from="YSort/Fariries" to="." method="_on_Fariries_is_dead"]
+[connection signal="swapper_picked" from="YSort/Flyswapper" to="." method="_on_Flyswapper_swapper_picked"]
+[connection signal="vampire_flee" from="YSort/Vampire" to="." method="_on_Vampire_vampire_flee"]
+[connection signal="empty_bucket_picked" from="YSort/Bucket" to="." method="_on_Bucket_empty_bucket_picked"]
+[connection signal="salt_picked" from="YSort/Salt" to="." method="_on_Salt_salt_picked"]
+[connection signal="garlic_picked" from="YSort/Garlic" to="." method="_on_Garlic_garlic_picked"]
+[connection signal="timeout" from="LeakTimer" to="." method="_on_LeakTimer_timeout"]
+[connection signal="animation_finished" from="Raven/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
