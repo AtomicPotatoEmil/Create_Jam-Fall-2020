@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://StartSequence/somedooridk_2.png" type="Texture" id=1]
+[ext_resource path="res://bar/assets/Peace Sans.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://StartSequence/StartSequenceAct2.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("main_label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade_in_out"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("play:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="StartSequenceAct2" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="main_label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.285714 )
+margin_left = 593.97
+margin_top = 39.6924
+margin_right = 998.97
+margin_bottom = 576.692
+custom_fonts/font = SubResource( 1 )
+text = "Inside this tavern we find
+our heroine of this story
+
+a young barmaid whom's
+job it is to figure out
+how to get rid of the last
+guests before midnight
+
+so that the queen won't 
+destroy the tavern
+and her life... "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play" type="Label" parent="."]
+margin_left = 357.117
+margin_top = 626.73
+margin_right = 762.117
+margin_bottom = 685.73
+custom_fonts/font = SubResource( 1 )
+text = "Press E to play"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_anim" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 2 )
+
+[node name="press_anim" type="AnimationPlayer" parent="."]
+anims/fade_in_out = SubResource( 3 )
+[connection signal="animation_finished" from="main_anim" to="." method="_on_main_anim_animation_finished"]

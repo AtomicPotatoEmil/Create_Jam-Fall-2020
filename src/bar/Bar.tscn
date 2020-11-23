@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://bar/assets/Wall_back_room.png" type="Texture" id=1]
 [ext_resource path="res://bar/assets/floors.png" type="Texture" id=2]
@@ -39,6 +39,7 @@
 [ext_resource path="res://bar/mouse_1.png" type="Texture" id=37]
 [ext_resource path="res://bar/Q_button.png" type="Texture" id=38]
 [ext_resource path="res://bar/mouse_2.png" type="Texture" id=39]
+[ext_resource path="res://bar/Time.tscn" type="PackedScene" id=40]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1075.77, 13.5125 )
@@ -536,7 +537,6 @@ offset = Vector2( 0, 500 )
 position = Vector2( 388.307, 447.907 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 16 )
-frame = 1
 playing = true
 offset = Vector2( 0, -200 )
 
@@ -656,6 +656,7 @@ wait_time = 2.0
 position = Vector2( 320.585, 532.06 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Raven"]
@@ -685,7 +686,7 @@ margin_right = 410.386
 margin_bottom = 688.226
 custom_fonts/font = SubResource( 23 )
 custom_colors/font_color = Color( 0, 0, 0, 0.784314 )
-text = "Fly swapper"
+text = "Fly swatter"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -737,9 +738,15 @@ modulate = Color( 1, 1, 1, 0.470588 )
 position = Vector2( 744.345, 668.686 )
 scale = Vector2( 0.09, 0.09 )
 texture = ExtResource( 39 )
+
+[node name="Time" parent="." instance=ExtResource( 40 )]
+margin_left = 446.378
+margin_top = 19.0
+margin_right = 486.378
+margin_bottom = 61.0
 [connection signal="bucket_gained" from="." to="YSort/Player" method="_on_Bar_bucket_gained"]
-[connection signal="bucket_placed" from="." to="." method="_on_Bar_bucket_placed"]
 [connection signal="bucket_placed" from="." to="YSort/Puddle" method="_on_Bar_bucket_placed"]
+[connection signal="bucket_placed" from="." to="." method="_on_Bar_bucket_placed"]
 [connection signal="feather_gained" from="." to="YSort/Player" method="_on_Bar_feather_gained"]
 [connection signal="swapper_gained" from="." to="YSort/Player" method="_on_Bar_swapper_gained"]
 [connection signal="timeout" from="YSort/Player/TalkTimer" to="." method="_on_TalkTimer_timeout"]

@@ -52,6 +52,11 @@ func _process(delta):
 			$YSort/Feather.hide()
 		else:
 			$YSort/Feather.show()
+	if $Time.hour >= 24:
+		get_tree().change_scene("res://GameOver/GameOver.tscn") 
+	
+	if creatures_in_bar == 0:
+		get_tree().change_scene("res://StartSequence/Victory.tscn")
 
 
 
@@ -59,7 +64,7 @@ func _process(delta):
 func _on_RicePudding_salted():
 	if has_salt == false:
 		talking = true
-		current_text = "There must be some \n way to mess with his rice pudding"
+		current_text = "There must be some \n way to make him stop eating"
 		talk_timer.start()
 	else:
 		$YSort/RicePudding.interactable = false
